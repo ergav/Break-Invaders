@@ -62,7 +62,7 @@ public class Invaders : MonoBehaviour
         for (int i = 0; i < hits.Length; i++)
         {
             RaycastHit2D hit = hits[i];
-            if (hit.collider.gameObject.GetComponent<Building>() != null)
+            if (hit.collider.gameObject.tag == "Building")
             {
                 if (!hasShot)
                 {
