@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5994772073263307147}
   - component: {fileID: 5994772073263307146}
   - component: {fileID: 5994772073263307125}
+  - component: {fileID: 4424364474679704506}
   m_Layer: 0
   m_Name: red space ship
   m_TagString: Enemy
@@ -130,5 +131,27 @@ MonoBehaviour:
   health: 1
   sideMoveDistance: 6
   laser: {fileID: 2603202510326068209, guid: 7490be5d32e3761479b46b18510e2cc0, type: 3}
+  explosion: {fileID: 6731019470866779548, guid: 76208437672b1244192caa259ab1ba87, type: 3}
   shootingOdds: 5
   shootCoolDown: 1
+  buildingDetectRange: 7
+--- !u!95 &4424364474679704506
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5994772073263307124}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b0a681a86d3d99d43954d607903da2e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

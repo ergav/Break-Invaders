@@ -15,16 +15,9 @@ public class LaserBeam : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Building")
-        {
-            Building building = collision.gameObject.GetComponent<Building>();
-            building.Damage();
-            Destroy(gameObject);
-        }
-        else if (collision.tag != "Enemy")
+        if (collision.tag != "Enemy")
         {
             Destroy(gameObject);
         }
-
     }
 }
