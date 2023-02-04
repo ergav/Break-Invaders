@@ -37,11 +37,27 @@ public class Invaders : MonoBehaviour
                 movingDown = true;
             }
         }
+
+        if (health <= 0)
+        {
+            Death();
+        }
     }
 
     public void Death()
     {
+        Destroy(gameObject);
+    }
 
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        TakeDamage(1);
     }
 
     IEnumerator MovingDownTimer()
