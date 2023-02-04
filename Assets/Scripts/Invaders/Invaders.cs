@@ -23,13 +23,18 @@ public class Invaders : MonoBehaviour
 
     public float buildingDetectRange = 7;
 
+    Animator anim;
+
     void Start()
     {
         counter = FindObjectOfType<SupplyShipSpawner>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
+        anim.SetInteger("Health", health);
+
         //Movement
         if (movingDown)
         {
