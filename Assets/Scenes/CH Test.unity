@@ -243,6 +243,14 @@ PrefabInstance:
       propertyPath: maxRight
       value: 9.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1159915920870596246, guid: 9c480ea654c6de84797b97726f2eefb0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159915920870596246, guid: 9c480ea654c6de84797b97726f2eefb0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c480ea654c6de84797b97726f2eefb0, type: 3}
 --- !u!1 &1123635891
@@ -325,8 +333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingsToSpawn: 5
-  spawnPositionIncrement: 5
-  spawnStartPosition: {x: -10.5, y: -4.95}
+  spawnPositionIncrement: 4
+  spawnStartPosition: {x: -8, y: -4.95}
   buildingPrefab: {fileID: 2204443476149160338, guid: b27785a92d6b78c4f8701992b497ee1e, type: 3}
 --- !u!1 &1344211985
 GameObject:

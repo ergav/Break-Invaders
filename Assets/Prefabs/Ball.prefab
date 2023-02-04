@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b5269929d3a1b34487aecb20b0b15ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: 14
-  startVelocity: 0
+  maxVelocity: 12
+  startVelocity: 5
   extraBall: 0
   platformBounceX: -20
   platformBounceY: 20
