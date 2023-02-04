@@ -30,6 +30,10 @@ public class Building : MonoBehaviour, IDamageable
         {
             return;
         }
+        if (ball.IsExtraBall)
+        {
+            return;
+        }
         Damage();
     }
 }

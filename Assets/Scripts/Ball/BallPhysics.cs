@@ -7,6 +7,7 @@ public class BallPhysics : MonoBehaviour
     
     [SerializeField] float maxVelocity;
     [SerializeField] float startVelocity;
+    [SerializeField] bool extraBall;
     private Rigidbody2D rb;
     const float minRandomForceX = -8;
     const float maxRandomForceX = 8;
@@ -61,4 +62,5 @@ public class BallPhysics : MonoBehaviour
         Vector2 bounceVector = new Vector2(xBounce, platformBounceY);
         rb.AddForce(bounceVector, ForceMode2D.Impulse);
     }
+    public bool IsExtraBall => extraBall;
 }

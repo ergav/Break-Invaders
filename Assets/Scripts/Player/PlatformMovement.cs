@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlatformMovement : MonoBehaviour
 {
     [SerializeField] float playerSpeed;
+    [SerializeField] float maxLeft, maxRight;
     private Vector2 horizontal;
     private Rigidbody2D rb;
     private void Awake()
@@ -14,19 +15,31 @@ public class PlatformMovement : MonoBehaviour
     void Update()
     {
         MovePlatform();
+        LimitMovement();
     }
     float Horizontal()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
-        if (horizontal != 0)
-        {
-            return horizontal;
-        }
-        return 0;
+        return horizontal;
     }
     void MovePlatform()
     {
         Vector2 velocity = new Vector2(Horizontal() * playerSpeed, rb.velocity.y);
         rb.velocity = velocity;
+    }
+    void LimitMovement()
+    {
+        if(Horizontal() == 0)
+        {
+            return;
+        }
+        if (transform.position.x <= maxLeft && Horizontal() < 0)
+        {
+            transform.position = new Vector2(maxLeft, transform.position.y);
+        }
+        if (transform.position.x >= maxRight && Horizontal() > 0)
+        {
+            transform.position = new Vector2(maxRight, transform.position.y);
+        }
     }
 }
