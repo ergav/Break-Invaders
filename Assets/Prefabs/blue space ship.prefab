@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8576668574165482219}
   - component: {fileID: 8576668574165482218}
   - component: {fileID: 8576668574165482005}
+  - component: {fileID: 2183333811847063346}
   m_Layer: 0
   m_Name: blue space ship
   m_TagString: Enemy
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e73f52aa52312ba4f894fef10c8d60af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77abf121fc207df4995e95ad8ccec1ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,5 +131,27 @@ MonoBehaviour:
   health: 2
   sideMoveDistance: 6
   laser: {fileID: 2603202510326068209, guid: 7490be5d32e3761479b46b18510e2cc0, type: 3}
+  explosion: {fileID: 6731019470866779548, guid: 76208437672b1244192caa259ab1ba87, type: 3}
   shootingOdds: 10
   shootCoolDown: 1
+  buildingDetectRange: 7
+--- !u!95 &2183333811847063346
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576668574165482004}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 206d9345fbeb7d64faa61cc51789d447, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

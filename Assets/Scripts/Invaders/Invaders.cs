@@ -14,11 +14,14 @@ public class Invaders : MonoBehaviour
     //[SerializeField] Vector2 maxBorder;
 
     [SerializeField] GameObject laser;
+    [SerializeField] GameObject explosion;
     [SerializeField] int shootingOdds = 10;
     [SerializeField] float shootCoolDown = 1;
     bool hasShot;
 
     SupplyShipSpawner counter;
+
+    public float buildingDetectRange = 7;
 
     void Start()
     {
@@ -55,7 +58,7 @@ public class Invaders : MonoBehaviour
 
         //Building detection
         RaycastHit2D[] hits;
-        hits = Physics2D.RaycastAll(transform.position, Vector2.down, 100f);
+        hits = Physics2D.RaycastAll(transform.position, Vector2.down, buildingDetectRange);
         if (hits.Length == 0)
         {
             return;
@@ -84,18 +87,17 @@ public class Invaders : MonoBehaviour
             counter.AddKill();
         }
 
+        Instantiate(explosion, transform.position, Quaternion.identity);   
         Destroy(gameObject);
     }
 
     public void TakeDamage(int amount)
     {
         health -= amount;
-
     }
 
     public void ShootLaser()
     {
-        Debug.Log("EYY!");
         int rng = Random.Range(0, shootingOdds);
         if (rng == 1)
         {
@@ -122,5 +124,10 @@ public class Invaders : MonoBehaviour
     {
         yield return new WaitForSeconds(shootCoolDown);
         hasShot = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(transform.position, Vector2.down * buildingDetectRange);
     }
 }

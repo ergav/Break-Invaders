@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 226041630482209898}
   - component: {fileID: 226041630482209941}
   - component: {fileID: 4776547131066423423}
+  - component: {fileID: 3934648445286694019}
   m_Layer: 0
   m_Name: green space ship
   m_TagString: Enemy
@@ -131,8 +132,10 @@ MonoBehaviour:
   health: 1
   sideMoveDistance: 6
   laser: {fileID: 2603202510326068209, guid: 7490be5d32e3761479b46b18510e2cc0, type: 3}
+  explosion: {fileID: 6731019470866779548, guid: 76208437672b1244192caa259ab1ba87, type: 3}
   shootingOdds: 10
   shootCoolDown: 1
+  buildingDetectRange: 7
 --- !u!50 &4776547131066423423
 Rigidbody2D:
   serializedVersion: 4
@@ -154,3 +157,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!95 &3934648445286694019
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226041630482209940}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd5f3979202e6c245961237254b6f359, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
