@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
+  destroyedSprite: {fileID: 21300000, guid: b6b18f5bc89a9d64d8c46c12c1ea3286, type: 3}
+  destroyFX: {fileID: 8426580555183989915, guid: b65afea78984dd5409508b188eca921c, type: 3}
 --- !u!61 &2204443476149160337
 BoxCollider2D:
   m_ObjectHideFlags: 0

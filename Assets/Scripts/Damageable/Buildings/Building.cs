@@ -5,6 +5,9 @@ using UnityEngine;
 public class Building : MonoBehaviour, IDamageable
 {
     [SerializeField] int maxHealth;
+    [SerializeField] Sprite destroyedSprite;
+    [SerializeField] Transform destroyFX;
+    bool spriteChanged;
     BuildingList manager;
     int currentHealth;
     private void Awake()
@@ -14,8 +17,14 @@ public class Building : MonoBehaviour, IDamageable
     public void Damage()
     {
         currentHealth--;
+        if (!spriteChanged)
+        {
+            GetComponent<SpriteRenderer>().sprite = destroyedSprite;
+            spriteChanged = true;
+        }
         if(currentHealth <= 0)
         {
+            Transform _destroyFX = Instantiate(destroyFX, transform.position, Quaternion.identity);
             manager.RemoveFromList(this);
             Destroy(gameObject);
         }
