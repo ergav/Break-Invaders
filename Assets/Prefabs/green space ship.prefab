@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 226041630482209941}
   m_Layer: 0
   m_Name: green space ship
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,3 +129,6 @@ MonoBehaviour:
   moveDownTime: 0.5
   health: 1
   sideMoveDistance: 6
+  laser: {fileID: 2603202510326068209, guid: 7490be5d32e3761479b46b18510e2cc0, type: 3}
+  shootingOdds: 10
+  shootCoolDown: 1

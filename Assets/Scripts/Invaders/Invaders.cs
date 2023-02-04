@@ -13,6 +13,11 @@ public class Invaders : MonoBehaviour
     //[SerializeField] Vector2 minBorder;
     //[SerializeField] Vector2 maxBorder;
 
+    [SerializeField] GameObject laser;
+    [SerializeField] int shootingOdds = 10;
+    [SerializeField] float shootCoolDown = 1;
+    bool hasShot;
+
     void Start()
     {
         
@@ -20,6 +25,7 @@ public class Invaders : MonoBehaviour
 
     void Update()
     {
+        //Movement
         if (movingDown)
         {
             transform.Translate(Vector2.down * movementSpeedVertical * Time.deltaTime);
@@ -29,6 +35,7 @@ public class Invaders : MonoBehaviour
             transform.Translate(Vector2.right * movementSpeedHorizontal * Time.deltaTime);
         }
 
+        //Move down
         if ((transform.position.x > sideMoveDistance && movementSpeedHorizontal > 0)|| (transform.position.x < -sideMoveDistance && movementSpeedHorizontal < 0))
         {
             if (!movingDown)
@@ -38,9 +45,33 @@ public class Invaders : MonoBehaviour
             }
         }
 
+        //Health
         if (health <= 0)
         {
             Death();
+        }
+
+        //Building detection
+        RaycastHit2D[] hits;
+        hits = Physics2D.RaycastAll(transform.position, Vector2.down, 100f);
+        if (hits.Length == 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            RaycastHit2D hit = hits[i];
+            if (hit.collider.gameObject.tag == "Building")
+            {
+                if (!hasShot)
+                {
+                    hasShot = true;
+                    ShootLaser();
+                    StartCoroutine(ShootCoolDownTimer());
+                }
+                return;
+            }
         }
     }
 
@@ -55,9 +86,22 @@ public class Invaders : MonoBehaviour
 
     }
 
+    public void ShootLaser()
+    {
+        Debug.Log("EYY!");
+        int rng = Random.Range(0, shootingOdds);
+        if (rng == 1)
+        {
+            Instantiate(laser, transform.position, Quaternion.identity);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        TakeDamage(1);
+        if (collision.gameObject.tag == "Ball")
+        {
+            TakeDamage(1);
+        }
     }
 
     IEnumerator MovingDownTimer()
@@ -65,5 +109,11 @@ public class Invaders : MonoBehaviour
         yield return new WaitForSeconds(moveDownTime);
         movementSpeedHorizontal = -movementSpeedHorizontal;
         movingDown = false;
+    }
+
+    IEnumerator ShootCoolDownTimer()
+    {
+        yield return new WaitForSeconds(shootCoolDown);
+        hasShot = false;
     }
 }
