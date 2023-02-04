@@ -41,6 +41,8 @@ public class Building : MonoBehaviour, IDamageable
         }
         if (ball.IsExtraBall)
         {
+            Destroy(ball.gameObject);
+            Debug.Log("Extra ball");
             return;
         }
         Damage();
