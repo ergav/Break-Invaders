@@ -102,7 +102,7 @@ MonoBehaviour:
   maxVelocity: 14
   startVelocity: 0
   extraBall: 0
-  platformBounceX: -5
+  platformBounceX: -20
   platformBounceY: 20
 --- !u!50 &4658261640078290772
 Rigidbody2D:
