@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Building : MonoBehaviour, IDamageable
 {
+    public Action OnDamaged;
+    public Action OnDestroyed;
     [SerializeField] int maxHealth;
     [SerializeField] Sprite destroyedSprite;
     [SerializeField] Transform destroyFX;

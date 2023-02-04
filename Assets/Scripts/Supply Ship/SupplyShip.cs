@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SupplyShip : MonoBehaviour, IDamageable
 {
+    public Action OnSpawn;
+    public Action OnDestroy;
     [SerializeField] Transform extraBall;
     [SerializeField] float speed;
     [SerializeField] float timeToDespawn;
@@ -12,6 +15,7 @@ public class SupplyShip : MonoBehaviour, IDamageable
     private void Awake()
     {
         spawnPos = transform.position;
+        OnSpawn?.Invoke();
     }
     public void Damage()
     {
@@ -41,6 +45,7 @@ public class SupplyShip : MonoBehaviour, IDamageable
         timeAlive += Time.deltaTime;
         if(timeAlive >= timeToDespawn)
         {
+            OnDestroy?.Invoke();
             Destroy(gameObject);
         }
     }
