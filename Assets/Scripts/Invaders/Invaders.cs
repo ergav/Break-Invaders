@@ -18,9 +18,11 @@ public class Invaders : MonoBehaviour
     [SerializeField] float shootCoolDown = 1;
     bool hasShot;
 
+    SupplyShipSpawner counter;
+
     void Start()
     {
-        
+        counter = FindObjectOfType<SupplyShipSpawner>();
     }
 
     void Update()
@@ -77,6 +79,11 @@ public class Invaders : MonoBehaviour
 
     public void Death()
     {
+        if (counter != null)
+        {
+            counter.AddKill();
+        }
+
         Destroy(gameObject);
     }
 
