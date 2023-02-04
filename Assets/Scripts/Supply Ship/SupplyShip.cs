@@ -6,7 +6,8 @@ public class SupplyShip : MonoBehaviour, IDamageable
 {
     [SerializeField] Transform extraBall;
     [SerializeField] float speed;
-    [SerializeField] float despawnDistance;
+    [SerializeField] float timeToDespawn;
+    float timeAlive;
     Vector2 spawnPos;
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class SupplyShip : MonoBehaviour, IDamageable
     private void Update()
     {
         Move();
+        Timer();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -33,7 +35,11 @@ public class SupplyShip : MonoBehaviour, IDamageable
     {
         Vector3 movement = new Vector3(transform.right.x * speed, 0, 0);
         transform.localPosition += movement * Time.deltaTime;
-        if(Vector2.SqrMagnitude((Vector2)transform.position - spawnPos) > despawnDistance)
+    }
+    void Timer()
+    {
+        timeAlive += Time.deltaTime;
+        if(timeAlive >= timeToDespawn)
         {
             Destroy(gameObject);
         }

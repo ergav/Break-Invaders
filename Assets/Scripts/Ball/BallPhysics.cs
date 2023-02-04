@@ -54,7 +54,7 @@ public class BallPhysics : MonoBehaviour
         {
             return;
         }
-        Debug.Log("Bounce");
+        //Debug.Log("Bounce");
         Vector2 platformCenter = platform.transform.position;
         Vector2 ballPosition = transform.position;
         float xDifference = platformCenter.x - ballPosition.x;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class PlatformMovement : MonoBehaviour
 {
     [SerializeField] float playerSpeed;
     [SerializeField] float maxLeft, maxRight;
+    public Action OnPlatformDestroyed;
     private Vector2 horizontal;
     private Rigidbody2D rb;
     private void Awake()
@@ -40,6 +42,14 @@ public class PlatformMovement : MonoBehaviour
         if (transform.position.x >= maxRight && Horizontal() > 0)
         {
             transform.position = new Vector2(maxRight, transform.position.y);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.TryGetComponent(out Invaders invaders))
+        {
+            OnPlatformDestroyed?.Invoke();
+            Destroy(gameObject);
         }
     }
 }
