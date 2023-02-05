@@ -38,6 +38,6 @@ public class BuildingList : MonoBehaviour
     }
     private void Reset()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(3);
     }
 }

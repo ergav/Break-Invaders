@@ -34,7 +34,7 @@ public class GameOver : MonoBehaviour
         currentTimer += Time.deltaTime;
         if(currentTimer >= timeToRestart)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(3);
         }
     }
 }

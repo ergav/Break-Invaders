@@ -12,6 +12,8 @@ public class SupplyShip : MonoBehaviour, IDamageable
     [SerializeField] float timeToDespawn;
     float timeAlive;
     Vector2 spawnPos;
+    [SerializeField] GameObject emtyShip;
+
     private void Start()
     {
         spawnPos = transform.position;
@@ -20,6 +22,7 @@ public class SupplyShip : MonoBehaviour, IDamageable
     public void Damage()
     {
         Transform ball = Instantiate(extraBall, transform.position, Quaternion.identity);
+        Instantiate(emtyShip, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
     private void Update()

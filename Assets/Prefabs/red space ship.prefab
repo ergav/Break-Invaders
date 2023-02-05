@@ -109,6 +109,7 @@ MonoBehaviour:
   shootingOdds: 10
   shootCoolDown: 1
   buildingDetectRange: 8
+  shootSound: {fileID: 8300000, guid: a1dd219afadb5c546a9639aa4d6a5d92, type: 3}
 --- !u!95 &4424364474679704506
 Animator:
   serializedVersion: 5
