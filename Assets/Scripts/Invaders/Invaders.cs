@@ -25,10 +25,14 @@ public class Invaders : MonoBehaviour
 
     Animator anim;
 
+    AudioSource source;
+    [SerializeField] AudioClip shootSound;
+
     void Start()
     {
         counter = FindObjectOfType<SupplyShipSpawner>();
         anim = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -106,6 +110,10 @@ public class Invaders : MonoBehaviour
         int rng = Random.Range(0, shootingOdds);
         if (rng == 1)
         {
+            if (source != null)
+            {
+                source.PlayOneShot(shootSound);
+            }
             Instantiate(laser, transform.position, Quaternion.identity);
         }
     }

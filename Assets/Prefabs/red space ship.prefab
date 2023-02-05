@@ -103,12 +103,12 @@ MonoBehaviour:
   movementSpeedHorizontal: 1
   moveDownTime: 0.5
   health: 1
-  sideMoveDistance: 6
+  sideMoveDistance: 7
   laser: {fileID: 2603202510326068209, guid: 7490be5d32e3761479b46b18510e2cc0, type: 3}
   explosion: {fileID: 6731019470866779548, guid: 76208437672b1244192caa259ab1ba87, type: 3}
-  shootingOdds: 5
+  shootingOdds: 10
   shootCoolDown: 1
-  buildingDetectRange: 7
+  buildingDetectRange: 8
 --- !u!95 &4424364474679704506
 Animator:
   serializedVersion: 5
