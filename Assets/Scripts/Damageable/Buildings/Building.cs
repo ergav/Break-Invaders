@@ -38,14 +38,18 @@ public class Building : MonoBehaviour, IDamageable
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(!collision.gameObject.TryGetComponent(out BallPhysics ball) || collision.gameObject.TryGetComponent(out LaserBeam laser))
+        if(collision.gameObject.TryGetComponent(out LaserBeam laser))
+        {
+            Debug.Log("Laser damage");
+            Damage();
+        }
+        if(!collision.gameObject.TryGetComponent(out BallPhysics ball))
         {
             return;
         }
         if (ball.IsExtraBall)
         {
             Destroy(ball.gameObject);
-            Debug.Log("Extra ball");
             return;
         }
         Damage();
