@@ -19,7 +19,6 @@ public class SupplyShipSounds : MonoBehaviour
         if(travelSound != null)
         {
             source.PlayOneShot(travelSound);
-            Debug.Log("Play shipp sound");
         }
 
     }
