@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ReturnToMenu : MonoBehaviour
 {
@@ -14,6 +15,6 @@ public class ReturnToMenu : MonoBehaviour
     IEnumerator Timer()
     {
         yield return new WaitForSeconds(returnTime);
-        Destroy(gameObject);
+        SceneManager.LoadScene(0);
     }
 }
