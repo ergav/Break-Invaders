@@ -110,6 +110,7 @@ MonoBehaviour:
   shootingOdds: 20
   shootCoolDown: 1
   buildingDetectRange: 12
+  shootSound: {fileID: 8300000, guid: a1dd219afadb5c546a9639aa4d6a5d92, type: 3}
 --- !u!50 &6874361277543491683
 Rigidbody2D:
   serializedVersion: 4

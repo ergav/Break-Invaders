@@ -12,6 +12,7 @@ public class BuildingSound : MonoBehaviour
     {
         baseClass = GetComponent<Building>();
         source = GetComponent<AudioSource>();
+
         baseClass.OnDamaged += PlayDamageSound;
         baseClass.OnDestroyed += PlayDestroySound;
     }

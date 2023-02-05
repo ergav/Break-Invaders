@@ -12,7 +12,7 @@ public class SupplyShip : MonoBehaviour, IDamageable
     [SerializeField] float timeToDespawn;
     float timeAlive;
     Vector2 spawnPos;
-    private void Awake()
+    private void Start()
     {
         spawnPos = transform.position;
         OnSpawn?.Invoke();

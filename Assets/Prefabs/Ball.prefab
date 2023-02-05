@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7941840e4951ccc46b7b963109a30656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSound: {fileID: 0}
+  bounceSound: {fileID: 8300000, guid: 1a0ccba4293fc654a93f9d1f9a5ce666, type: 3}
 --- !u!50 &4658261640078290772
 Rigidbody2D:
   serializedVersion: 4
