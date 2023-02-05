@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-
+    [SerializeField] float despawnTime = 0.4f;
     void Awake()
     {
         StartCoroutine(Despawn());
@@ -12,7 +12,7 @@ public class Explosion : MonoBehaviour
 
     IEnumerator Despawn()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(despawnTime);
         Destroy(gameObject);
     }
 }
