@@ -12,6 +12,7 @@ public class BallPhysics : MonoBehaviour
     const float minRandomForceX = -8;
     const float maxRandomForceX = 8;
     const float minYVelocity = 0.5f;
+    const float minXVelocity = 0.5f;
     [SerializeField] float platformBounceX;
     [SerializeField] float platformBounceY;
     void Start()
@@ -23,6 +24,7 @@ public class BallPhysics : MonoBehaviour
     {
         LimitVelocity();
         PreventFlatVelocity();
+        PreventNoXVelocity();
     }
     void StartForce()
     {
@@ -45,6 +47,17 @@ public class BallPhysics : MonoBehaviour
         }
         float randomYForce = Random.Range(-1f, 1f);
         Vector2 RandomForce = new Vector2(rb.velocity.x, randomYForce);
+        rb.AddForce(RandomForce, ForceMode2D.Impulse);
+    }
+    void PreventNoXVelocity()
+    {
+        float xVelocity = Mathf.Abs(rb.velocity.x);
+        if(xVelocity > minXVelocity)
+        {
+            return;
+        }
+        float randomXForce = Random.Range(-1f, 1f);
+        Vector2 RandomForce = new Vector2(randomXForce, rb.velocity.y);
         rb.AddForce(RandomForce, ForceMode2D.Impulse);
     }
     private void OnCollisionEnter2D(Collision2D collision)
